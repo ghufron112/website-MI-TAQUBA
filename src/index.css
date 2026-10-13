@@ -1,0 +1,212 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --sdn-navy: #1e293b;
+    --sdn-navy-dark: #0f172a;
+    --sdn-blue: #0284c7;
+    --sdn-blue-soft: #38bdf8;
+    --sdn-teal: #0ea5e9;
+    --sdn-orange: #f39f5f;
+    --sdn-orange-hover: #ea580c;
+    --sdn-amber: #f59e0b;
+    --sdn-border: rgba(226, 232, 240, 0.8);
+    --primary-blue: #0284c7;
+    --primary-blue-soft: #38bdf8;
+    --accent-gold: #f59e0b;
+    --bg-slate: #f8fafc;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  body {
+    background-color: #f8fafc;
+    color: #334155;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Quicksand', sans-serif;
+    color: #1e293b;
+    font-weight: 700;
+  }
+}
+
+.font-heading {
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* SDN Gintung 1 inspired Theme CTA Button */
+.theme-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  outline: none;
+  background-color: #f39f5f;
+  color: #ffffff;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  padding: 12px 28px;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 9999px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  z-index: 1;
+  box-shadow: 0 4px 14px rgba(243, 159, 95, 0.35);
+}
+
+.theme-btn:hover {
+  background-color: #ea580c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(234, 88, 12, 0.4);
+  color: #ffffff;
+}
+
+.theme-btn-navy {
+  background-color: #172033;
+  box-shadow: 0 4px 14px rgba(23, 32, 51, 0.25);
+}
+
+.theme-btn-navy:hover {
+  background-color: #0f172a;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.35);
+}
+
+.theme-btn-blue {
+  background-color: #0284c7;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+}
+
+.theme-btn-blue:hover {
+  background-color: #0369a1;
+  box-shadow: 0 8px 20px rgba(3, 105, 161, 0.35);
+}
+
+/* Card Shine & Hover Glow Effect (Like sdngintung1.com) */
+.sdn-hover-card {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
+}
+
+.sdn-hover-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+}
+
+.sdn-card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.sdn-card-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  transition: none;
+}
+
+.sdn-card-shine:hover::after {
+  left: 140%;
+  transition: left 0.85s ease-in-out;
+}
+
+/* Continuous Infinite Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-fast {
+  display: flex;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+
+.animate-marquee-fast:hover {
+  animation-play-state: paused;
+}
+
+/* Floating Animations */
+@keyframes customBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-custom-bounce {
+  animation: customBounce 3.5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Shimmer Text */
+.sdn-text-shimmer {
+  background: linear-gradient(90deg, #ffffff 0%, #fde68a 50%, #ffffff 100%);
+  background-size: 200% auto;
+  color: #ffffff;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
